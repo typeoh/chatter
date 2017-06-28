@@ -19,10 +19,10 @@
     "edit",
     "webpack"
   ],
-  "author": "Noah-Jerome Lotzer <n.lotzer@neusta.de>",
+  "author": "Shauna Griffin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/noahlotzer/react-simple-boilerplate/issues"
+    "url": "https://github.com/typeoh/chatter"  
   },
   "homepage": "https://github.com/noahlotzer/react-simple-boilerplate",
   "engines": {
