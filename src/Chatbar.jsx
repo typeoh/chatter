@@ -5,7 +5,8 @@ class ChatBar extends Component {
   constructor(props) {
     super(props);
       this.state = {
-        value: ''};
+        value: '',
+      };
     }
 // handleInput(event) {
 //     const usernameInput = document.querySelector('chatbar-username');
@@ -23,7 +24,7 @@ class ChatBar extends Component {
     return (
       <footer className="chatbar">
         <input ref="username" className="chatbar-username" placeholder="Your Name (Optional)" defaultValue={this.props.currentUser.name} onKeyPress={this.handleChange}/>
-        <input ref="content" reclassName="chatbar-message" placeholder="Type a message and hit ENTER" onKeyPress={this.handleChange}/>
+        <input ref="content" className="chatbar-message" placeholder="Type a message and hit ENTER" onKeyPress={this.handleChange}/>
       </footer>
     );
   }

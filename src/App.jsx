@@ -11,41 +11,30 @@ class App extends Component {
   this.state = {
     currentUser: {
       name: 'Bob'}, // optional. if currentUser is not defined, it means the user is Anonymous
-      messages: [
-        {
-          id: 1,
-          username: 'Bob',
-          content: 'Has anyone seen my marbles?',
-        },
-        {
-          id: 2,
-          username: 'Anonymous',
-          content: 'No, I think you lost them. You lost your marbles Bob. You lost them for good.'
-        }
-      ]
+      messages: []
     }
     this.newMessage=this.newMessage.bind(this);
   }
+
+  sendMessageToServer(message) {
+    console.log('Message', message);
+    this.socket.send(message);
+  }
+
   componentDidMount() {
-  console.log('componentDidMount <App />');
+  console.log('component did mount');
+    this.socket = new WebSocket('ws://localhost:3001/');
+    this.socket.addEventListener('message', (event) => {
+      const messages = JSON.parse(event.data);
+      const newMessages = this.state.messages.concat(messages);
+      this.setState({messages:newMessages});
+    });
 }
   newMessage(username, content) { 
-    const newMessage = {id:Date.now(), username:username , content:content};  
-    const messages = this.state.messages.concat(newMessage)   
-    this.setState({messages:messages});
+    const newMessage = {username:username, content:content}; 
+    this.sendMessageToServer(JSON.stringify(newMessage)) 
   }
  
- 
-// Add a new message to the list of messages in the data store
-
-    // addNewMessage(username, content){
-
-
-    // }
-
-    // Update the state of the app component.
-    // Calling setState will trigger a call to render() in App and all child components.
-  //   this.setState({messages: messages})
   render() {
     return (
       <div>
