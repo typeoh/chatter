@@ -8,22 +8,23 @@ class ChatBar extends Component {
         value: '',
       };
     }
-// handleInput(event) {
-//     const usernameInput = document.querySelector('chatbar-username');
-//     const messageIn  put = document.querySelector('chatbar-message');
-//   if(event.key === 'Enter') {
-//     this.setState({
-//       content: ''
-//   })
+
   handleChange = (event) => {
-    if(event.key === 'Enter'){
-      this.props.newMessage(this.refs.username.value, this.refs.content.value)
+    if(event.key === 'Enter') {
+        this.props.newMessage({"type": "postMessage"}, this.refs.username.value, this.refs.content.value)     
+    }
+  } 
+  handleNewUser = (event) =>{
+    if(event.key === 'Enter') {
+      var content = (this.props.currentUser.name + " changed their name to " + this.refs.username.value)
+      const newUser = this.refs.username.value;
+      this.props.changeUsername({"type": "postNotification"}, content, newUser)
     }
   }
   render() {
     return (
       <footer className="chatbar">
-        <input ref="username" className="chatbar-username" placeholder="Your Name (Optional)" defaultValue={this.props.currentUser.name} onKeyPress={this.handleChange}/>
+        <input ref="username" className="chatbar-username" placeholder="Your Name (Optional)" defaultValue={this.props.currentUser.name} onKeyPress={this.handleNewUser}/>
         <input ref="content" className="chatbar-message" placeholder="Type a message and hit ENTER" onKeyPress={this.handleChange}/>
       </footer>
     );
