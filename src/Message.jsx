@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-
+//Contains the information for each individual message
 class Message extends Component {
   render() {
     return (

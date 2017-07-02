@@ -3,8 +3,11 @@ import Message from './Message.jsx';
 
 class MessageList extends Component {
   render() {
+    //Renders the array given to it by its parent App
     var messageArray = this.props.messages;
     return (
+      //Maps a new array with the latest state of the Parent App
+      //If postNotification it will add a new notification along with the messages
       <main className="messages">
         {messageArray.map((message) => {
           if(message.type === "postMessage") {

@@ -8,12 +8,15 @@ class ChatBar extends Component {
         value: '',
       };
     }
-
+//On key press enter, handleChange takes the content of the content Chatbar and assigns a postMessage type
   handleChange = (event) => {
     if(event.key === 'Enter') {
         this.props.newMessage({"type": "postMessage"}, this.refs.username.value, this.refs.content.value)     
     }
-  } 
+  }
+//On key press enter, handleNewUser takes the content of the username Chatbar and assigns a postNotification type
+//And assembles a string with the notification containing old and new usernames
+//Calls the changeUsername function on the new object 
   handleNewUser = (event) =>{
     if(event.key === 'Enter') {
       var content = (this.props.currentUser.name + " changed their name to " + this.refs.username.value)
