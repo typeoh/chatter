@@ -3,6 +3,9 @@ Chatty App
 
 A clean, simple chat app that lets users chat in real-time with WebSockets and React
 
+### Final Product
+!["Homepage for Chatty"](https://github.com/typeoh/chatter/blob/master/images/Full_page.png)
+
 ### Usage
 
 Clone chatty and create your own git repo.
