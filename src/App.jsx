@@ -34,15 +34,15 @@ class App extends Component {
       var messages = event.data;
       messages = JSON.parse(messages);      
       switch(messages.type){
-        case "postMessage":
+        case 'postMessage':
           const newMessages = this.state.messages.concat(messages);
           this.setState({messages: newMessages});
           break;
-        case "postNotification":
+        case 'postNotification':
           const newNotification = this.state.messages.concat(messages)
           this.setState({messages: newNotification})
           break;
-        case "clientsize":
+        case 'clientsize':
           const numberConnected = messages.clientNum;
           this.setState({numberOfClients: numberConnected})
       }
